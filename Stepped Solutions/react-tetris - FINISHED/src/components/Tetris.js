@@ -107,20 +107,22 @@ const Tetris = () => {
       onKeyDown={e => move(e)}
       onKeyUp={keyUp}
     >
-      <StyledTetris>
+      <StyledTetris style={{display: 'flex', flexDirection:'column'}}>
         <Stage stage={stage} />
-        <aside>
+        <br/>
+        <div style={{display: 'flex', flexDirection:'column', width: '75vw',justifySelf:'center',alignSelf:'center'}}>
           {gameOver ? (
             <Display gameOver={gameOver} text="Game Over" />
           ) : (
-            <div>
+            <div style={{display: 'flex', flexDirection:'row'}}>
               <Display text={`Score: ${score}`} />
               <Display text={`rows: ${rows}`} />
               <Display text={`Level: ${level}`} />
             </div>
           )}
-          <StartButton callback={startGame} />
-        </aside>
+          <StartButton title={'Start Game'} callback={startGame} />
+          <StartButton title={'A GAME BY [PRIME] ElenaKOngz#8360'} callback={startGame} />
+        </div>
       </StyledTetris>
     </StyledTetrisWrapper>
   );
